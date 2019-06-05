@@ -4,17 +4,17 @@ class DrumSlots
     {
         this.slots = new Array(9);
 
-        let spacingX = (Bombe.length - 14 * Drum.DEFAULT_DIAMETER * Bombe.scale * 1.1) / 2;
+        this.spacingX = (Bombe.length - 14 * Drum.DEFAULT_DIAMETER * Bombe.scale * 1.1) / 2;
 
-        let spacingY = (Bombe.height - 9 * Drum.DEFAULT_DIAMETER * Bombe.scale * 1.1) / 4;
+        this.spacingY = (Bombe.height - 9 * Drum.DEFAULT_DIAMETER * Bombe.scale * 1.1) / 4;
 
-        let y = Bombe.frontTopLeftY + spacingY + Drum.DEFAULT_DIAMETER * Bombe.scale / 2;
+        let y = Bombe.frontTopLeftY + this.spacingY + Drum.DEFAULT_DIAMETER * Bombe.scale / 2;
 
         for(let i = 0; i < this.slots.length; i++)
         {
             this.slots[i] = new Array(12);
 
-            let x = Bombe.frontTopLeftX + spacingX + Drum.DEFAULT_DIAMETER * Bombe.scale / 2;
+            let x = Bombe.frontTopLeftX + this.spacingX + Drum.DEFAULT_DIAMETER * Bombe.scale / 2;
 
             for(let j = 0; j < this.slots[i].length; j++)
             {
@@ -25,7 +25,7 @@ class DrumSlots
 
             if((i+1)%3 == 0)
             {
-                y += spacingY;
+                y += this.spacingY;
             }
 
             y += Drum.DEFAULT_DIAMETER * Bombe.scale * 1.1;

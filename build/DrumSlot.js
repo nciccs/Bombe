@@ -10,6 +10,11 @@ class DrumSlot
 
     draw()
     {
+        DrumSlot.draw(this.x, this.y, this.diameter);
+    }
+
+    static draw(inX, inY, inDiameter)
+    {
         push();
         if(this.drum)
         {
@@ -19,7 +24,7 @@ class DrumSlot
         {
             fill(200);
         }
-        ellipse(this.x, this.y, this.diameter);
+        ellipse(inX, inY, inDiameter);
         pop();
     }
 

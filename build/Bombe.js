@@ -89,16 +89,18 @@ class Bombe
 
         this.jackSlots = new JackSlots(this, this.registers, this.commons, this.scramblers, this.inputJacks);
 
-        this.DrumTemplates = [];
+        this.drumTemplates = [];
         for(let i = 0; i < 5; i++)
         {
             //this.DrumTemplates[i] = new DrumTemplate(this, i+1);
             //this.DrumTemplates[i].x = Bombe.frontTopLeftX + Drum.DEFAULT_DIAMETER*Bombe.scale/2 + Drum.DEFAULT_DIAMETER * Bombe.scale * i * 1.5;
             //this.DrumTemplates[i].y = Bombe.frontTopLeftY / 2;
-            this.DrumTemplates[i] = new DrumTemplate(this, i+1);
-            this.DrumTemplates[i].x = Bombe.frontTopLeftX - Bombe.breadth / 2 ;
-            this.DrumTemplates[i].y = Bombe.frontTopLeftY + Bombe.height + Drum.DEFAULT_DIAMETER * Bombe.scale + Drum.DEFAULT_DIAMETER * Bombe.scale * i * 1.5;
+            this.drumTemplates[i] = new DrumTemplate(this, i+1);
+            this.drumTemplates[i].x = Bombe.frontTopLeftX - Bombe.breadth / 2 ;
+            this.drumTemplates[i].y = Bombe.frontTopLeftY + Bombe.height + Drum.DEFAULT_DIAMETER * Bombe.scale + Drum.DEFAULT_DIAMETER * Bombe.scale * i * 1.5;
         }
+
+        this.indicatorDrums = new IndicatorDrums(this);
     }
 
     createDrumNums(letters)
@@ -147,15 +149,18 @@ class Bombe
 
         for(let i = 0; i < 5; i++)
         {
-            this.DrumTemplates[i].draw();
+            this.drumTemplates[i].draw();
         }
+
+        this.indicatorDrums.draw();
+        //this..draw();
     }
 
     mousePressed()
     {
         for(let i = 0; i < 5; i++)
         {
-            this.DrumTemplates[i].mousePressed();
+            this.drumTemplates[i].mousePressed();
         }
     }
 
