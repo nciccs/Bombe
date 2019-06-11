@@ -1,13 +1,28 @@
 class Bombe
 {
+    static get ORIGINAL_LENGTH()
+    {
+        return 220;
+    }
+
+    static get ORIGINAL_HEIGHT()
+    {
+        return 180;
+    }
+
+    static get ORIGINAL_BREADTH()
+    {
+        return 80;
+    }
+
     static get scale()
     {
-        return 2.6;
+        return width / (Bombe.ORIGINAL_BREADTH*2+Bombe.ORIGINAL_LENGTH) * .99;
     }
 
     static get length()
     {
-        return 220 * Bombe.scale;
+        return Bombe.ORIGINAL_LENGTH * Bombe.scale;
     }
 
     static get width()
@@ -17,12 +32,12 @@ class Bombe
 
     static get height()
     {
-        return 180 * Bombe.scale;
+        return Bombe.ORIGINAL_HEIGHT * Bombe.scale;
     }
 
     static get breadth()
     {
-        return 80 * Bombe.scale;
+        return Bombe.ORIGINAL_BREADTH * Bombe.scale;
     }
 
     static get frontTopLeftX()
@@ -138,7 +153,6 @@ class Bombe
         rect(Bombe.frontTopLeftX+Bombe.length, Bombe.frontTopLeftY, Bombe.breadth, Bombe.height);
         //back
         rect(Bombe.frontTopLeftX, Bombe.frontTopLeftY+Bombe.height, Bombe.length, Bombe.height);
-        pop();
 
         this.jackSlots.draw();
 
@@ -153,7 +167,8 @@ class Bombe
         }
 
         this.indicatorDrums.draw();
-        //this..draw();
+
+        pop();
     }
 
     mousePressed()
